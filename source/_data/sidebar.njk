@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>播放云链接音乐</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+</head>
+<body>
+
+<!-- 播放器容器 -->
+<div id="aplayer"></div>
+
+<script>
+    const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        autoplay: false,
+        loop: 'all',
+        order: 'random',
+        preload: 'auto',
+        volume: 0.8,
+        listFolded: true,
+        audio: [
+            {
+                name: '生命流',
+                artist: '塞壬唱片',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E5%A1%9E%E5%A3%AC%E5%94%B1%E7%89%87-MSR%2CBaoUner%20-%20%E7%94%9F%E5%91%BD%E6%B5%81.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910191107003.png'
+            },
+            {
+                name: '生命流(电机版)',
+                artist: '黄老咩',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/lifestream%28machine%29.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910191852938.png'
+            },
+            {
+                name: '生命流(钢琴版)',
+                artist: 'LYDMX',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/lifestream(piano).mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910195416380.png'
+            },
+            {
+                name: '生命流(古风版)',
+                artist: '万伟康',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E4%B8%87%E4%BC%9F%E5%BA%B7%20-%20%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F-%E7%94%9F%E5%91%BD%E6%B5%81%E3%80%90%E5%8F%A4%E9%A3%8E%E7%89%88%E3%80%91%EF%BC%88%E7%BF%BB%E8%87%AA%20BaoUner%EF%BC%89.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910195714670.png'
+            },
+            {
+                name: '走过漫漫时空',
+                artist: '塞壬唱片',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E8%B5%B0%E8%BF%87%E6%BC%AB%E6%BC%AB%E6%97%B6%E7%A9%BA.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910201308656.png'
+            },
+            {
+                name: 'Succession',
+                artist: '塞壬唱片',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Succession.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910201902333.png'
+            },
+            {
+                name: '......已至。',
+                artist: '塞壬唱片',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/......%E5%B7%B2%E8%87%B3.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910202444479.png'
+            },
+            {
+                name: 'Monster',
+                artist: 'STARSET',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Monster.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910204034985.png'
+            },
+            {
+                name: 'Unbecoming',
+                artist: 'STARSET',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Unbecoming.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910204524342.png'
+            },
+            {
+                name: 'Telescope',
+                artist: 'STARSET',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Telescope.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910205748293.png'
+            },
+            {
+                name: 'Untitled world',
+                artist: 'ReoNa',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Untitled%20world.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910211514399.png'
+            },
+            {
+                name: 'I Believe In Us',
+                artist: 'Reigan',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/I%20Believe%20In%20Us.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910212029308.png'
+            },
+            {
+                name: '寒霜之星',
+                artist: 'Roina_n',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E5%AF%92%E9%9C%9C%E4%B9%8B%E6%98%9F.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910212424459.png'
+            },
+            {
+                name: '涌潮悲歌',
+                artist: 'atoroeato',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/atoroeato%20-%20%E6%B6%8C%E6%BD%AE%E6%82%B2%E6%AD%8C%E3%80%90%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%E6%96%AF%E5%8D%A1%E8%92%82%E9%80%A0%E8%AF%AD%E5%90%8C%E4%BA%BA%E6%9B%B2%E3%80%91.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910213021224.png'
+            },
+            {
+                name: 'AL:Lu',
+                artist: 'Eliana',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/ALLU.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250308032711151.png'
+            },
+            {
+                name: 'Still',
+                artist: 'Timirage',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Still.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910214812802.png'
+            },
+            {
+                name: 'Fragments',
+                artist: 'Sappheiros',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Fragments.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910215514100.png'
+            },
+            {
+                name: 'View from Above',
+                artist: 'Sappheiros',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/View%20from%20Above.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910220235799.png'
+            },
+            {
+                name: 'Moonfall',
+                artist: 'Xomu',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Moonfall.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910220600281.png'
+            },
+            {
+                name: 'Lanterns',
+                artist: 'Xomu',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Lanterns.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910220858459.png'
+            },
+            {
+                name: '我撕裂我的身體',
+                artist: 'Double X',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Double%20X%20-%20%E6%88%91%E6%92%95%E8%A3%82%E6%88%91%E7%9A%84%E8%BA%AB%E9%AB%94(8D%20Version).mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910221218638.png'
+            },
+            {
+                name: 'Episode 33',
+                artist: 'She Her Her Her',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Episode%2033.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250910230223461.png'
+            },
+            {
+                name: 'haunt u',
+                artist: 'Lil Peep',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/haunt%20u.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911040939181.png'
+            },
+            {
+                name: 'grief',
+                artist: 'Madi Marie',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/grief.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911041319096.png'
+            },
+            {
+                name: 'Blue',
+                artist: 'Madi Marie',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Blue.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911042850709.png'
+            },
+            {
+                name: 'Under the Sea',
+                artist: '仁辰 / 南有乔木',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Under%20the%20Sea.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911043437737.png'
+            },
+            {
+                name: 'Era',
+                artist: 'Resonance',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Era.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911043951327.png'
+            },
+            {
+                name: '月笠',
+                artist: '月下散落出世',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E6%9C%88%E7%AC%A0.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911044250060.png'
+            },
+            {
+                name: 'Shooting Star',
+                artist: 'Little End',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Shooting%20Star.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911044702887.png'
+            },
+            {
+                name: 'Star',
+                artist: 'Eric Chen陈天培',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Star.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911050540469.png'
+            },
+            {
+                name: 'Strings For A Queen',
+                artist: 'ELYZA / Xan',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Strings%20For%20A%20Queen.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911050805865.png'
+            },
+            {
+                name: 'The Right Path',
+                artist: 'Thomas Greenberg',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/The%20Right%20Path.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911051220862.png'
+            },
+            {
+                name: 'Fade',
+                artist: 'Alan Walker',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Fade.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911051558557.png'
+            },
+            {
+                name: 'Force',
+                artist: 'Alan Walker',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Force.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911051558557.png'
+            },
+            {
+                name: 'Lost Control',
+                artist: 'Tyron Hapi / Bianca',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Lost%20Control.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911052347237.png'
+            },
+            {
+                name: 'Nevada',
+                artist: 'Vicetone / Cozi Zuehlsdorff',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Nevada.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911052801723.png'
+            },
+            {
+                name: 'Trip',
+                artist: 'Axero',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Trip.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911053139444.png'
+            },
+            {
+                name: 'Open Window (Original Mix)',
+                artist: 'MitiS / Anna Yvette',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Open%20Window%20(Original%20Mix).mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911053322818.png'
+            },
+            {
+                name: 'Friendships',
+                artist: 'Pascal Letoublon',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Friendships.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911053826969.png'
+            },
+            {
+                name: '铸镜',
+                artist: 'Daniel James',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E9%93%B8%E9%95%9C.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911054212558.png'
+            },
+            {
+                name: 'Mine (Illenium Remix)',
+                artist: 'ILLENIUM / Phoebe Ryan',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Mine%20(Illenium%20Remix).mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911054704583.png'
+            },
+            {
+                name: 'Umbrella (Matte Remix)',
+                artist: 'Matte / Ember Island',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Umbrella%20(Matte%20Remix).mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911054854825.png'
+            },
+            {
+                name: 'Take Me Hand',
+                artist: 'DAISHI DANCE / Cécile Corbel',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Take%20Me%20Hand.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911055220734.png'
+            },
+            {
+                name: '城南花已开',
+                artist: '三亩地',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E5%9F%8E%E5%8D%97%E8%8A%B1%E5%B7%B2%E5%BC%80.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911055450630.png'
+            },
+            {
+                name: '《你的名字。》6首BGM其实是一首歌',
+                artist: 'Kyle Xian',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E3%80%8A%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E3%80%82%E3%80%8B6%E9%A6%96BGM%E5%85%B6%E5%AE%9E%E6%98%AF%E4%B8%80%E9%A6%96%E6%AD%8C.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911055957122.png'
+            },
+            {
+                name: '逃离地面',
+                artist: '三浦透子 / RADWIMPS',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E9%80%83%E7%A6%BB%E5%9C%B0%E9%9D%A2.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911060324729.png'
+            },
+            {
+                name: 'すずめ feat.十明',
+                artist: 'RADWIMPS / 十明',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E3%81%99%E3%81%9A%E3%82%81%20feat.%E5%8D%81%E6%98%8E.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911061135318.png'
+            },
+            {
+                name: 'Shadow of the Sun',
+                artist: 'Max Elto/离离离',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Shadow%20of%20the%20Sun.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911062408580.png'
+            },
+            {
+                name: 'My Sunset (Original Mix)',
+                artist: 'Feint',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/My%20Sunset%20(Original%20Mix).mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911062807266.png'
+            },
+            {
+                name: 'Seasons',
+                artist: 'Rival / CADMIUM / Harley Bird',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Seasons.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911070637040.png'
+            },
+            {
+                name: 'Timeless',
+                artist: 'Nouri',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Timeless.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911070946218.png'
+            },
+            {
+                name: 'Into You',
+                artist: 'Matisse & Sadko / Hanne Mjøen',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Into%20You.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911072200402.png'
+            },
+            {
+                name: 'La Danse de la Lune',
+                artist: 'Ivan Torrent',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/La%20Danse%20de%20la%20Lune.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911072413390.png'
+            },
+            {
+                name: 'Call of Silence',
+                artist: '澤野弘之 / R!N/Gemie',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Call%20of%20Silence.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911072824566.png'
+            },
+            {
+                name: '翼をください',
+                artist: '南歌sama',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E7%BF%BC%E3%82%92%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911073126693.png'
+            },
+            {
+                name: 'Beautiful World',
+                artist: '宇多田ヒカル',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Beautiful%20World.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911073538092.png'
+            },
+            {
+                name: 'One Last Kiss',
+                artist: '宇多田ヒカル',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/One%20Last%20Kiss.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911073538092.png'
+            },
+            {
+                name: 'ninelie',
+                artist: 'Aimer / EGOIST',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/ninelie.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911074140600.png'
+            },
+            {
+                name: 'oblivious',
+                artist: 'Kalafina',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/oblivious.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911074415706.png'
+            },
+            {
+                name: 'M19+20',
+                artist: '梶浦由記',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/M19%2B20.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911074838483.png'
+            },
+            {
+                name: '菅野祐悟-JOJO的奇妙冒险花京院处刑曲电音版（KiraraMagic remix）',
+                artist: 'Kirara Magic',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E8%8F%85%E9%87%8E%E7%A5%90%E6%82%9F-JOJO%E7%9A%84%E5%A5%87%E5%A6%99%E5%86%92%E9%99%A9%E8%8A%B1%E4%BA%AC%E9%99%A2%E5%A4%84%E5%88%91%E6%9B%B2%E7%94%B5%E9%9F%B3%E7%89%88%EF%BC%88KiraraMagic%20remix%EF%BC%89.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911075232731.png'
+            },
+            {
+                name: '紅蓮華',
+                artist: 'LiSA',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E7%B4%85%E8%93%AE%E8%8F%AF.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911075641392.png'
+            },
+            {
+                name: 'crossing field',
+                artist: 'LiSA',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/crossing%20field.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911080829149.png'
+            },
+            {
+                name: 'βίος &lt;MK+nZk Version&gt',
+                artist: '小林未郁 / 澤野弘之',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%CE%B2%CE%AF%CE%BF%CF%82%20%26lt%3BMK%2BnZk%20Version%26gt.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911075847508.png'
+            },
+            {
+                name: 'Bury the Light',
+                artist: 'Victor Borba',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Bury%20the%20Light.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911080234015.png'
+            },
+            {
+                name: 'Sincerely',
+                artist: 'TRUE',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Sincerely.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911080422736.png'
+            },
+            {
+                name: 'So Far Away (Acoustic)',
+                artist: 'Adam Christopher',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/So%20Far%20Away%20(Acoustic).mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911081120691.png'
+            },
+            {
+                name: 'Mood (Remix)',
+                artist: 'Wrong Jang',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Mood%20(Remix).mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911081631420.png'
+            },
+            {
+                name: 'Time to Pretend',
+                artist: 'Lazer Boomerang',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Time%20to%20Pretend.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911081837274.png'
+            },
+            {
+                name: 'Savage Love Tiktok Dance',
+                artist: 'Relaxing Music',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Savage%20Love%20Tiktok%20Dance.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911082641044.png'
+            },
+            {
+                name: 'TIRED OF PROBLEMS',
+                artist: 'NUEKI / TOLCHONOV / Glichery',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/TIRED%20OF%20PROBLEMS.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911082841349.png'
+            },
+            {
+                name: 'Lost',
+                artist: 'Lost Sky',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Lost.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911083253803.png'
+            },
+            {
+                name: 'Fearless',
+                artist: 'Lost Sky',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Fearless.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911083344327.png'
+            },
+            {
+                name: 'The Ocean (Radio Edit)',
+                artist: 'Mike Perry / SHY Martin',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/The%20Ocean%20(Radio%20Edit).mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911083804274.png'
+            },
+            {
+                name: 'Solo Dance',
+                artist: 'Martin Jensen',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Solo%20Dance.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911084101553.png'
+            },
+            {
+                name: 'X-GALACTICO',
+                artist: 'Glichery / MXCCREE / DJ GL3CHEKY',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/X-GALACTICO.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911084545574.png'
+            },
+            {
+                name: 'Lifeline',
+                artist: 'Zeraphym 六翼使徒',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Lifeline.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911084808854.png'
+            },
+            {
+                name: 'Higher',
+                artist: 'Tobu',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Higher.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911085116725.png'
+            },
+            {
+                name: 'Normal No More',
+                artist: 'TYSM',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Normal%20No%20More.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911085247735.png'
+            },
+            {
+                name: 'TruE',
+                artist: '黄龄 / HOYO-MiX',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/TruE.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911085616218.png'
+            },
+            {
+                name: '故风吟游之地',
+                artist: '鸣潮先约电台 / jkinss',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E6%95%85%E9%A3%8E%E5%90%9F%E6%B8%B8%E4%B9%8B%E5%9C%B0.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911090851217.png'
+            },
+            {
+                name: 'Weight of the World/壊レタ世界ノ歌',
+                artist: '河野マリナ',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/Weight%20of%20the%20World.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911091316877.png'
+            },
+            {
+                name: '遺サレタ場所/斜光',
+                artist: '岡部啓一',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/%E9%81%BA%E3%82%B5%E3%83%AC%E3%82%BF%E5%A0%B4%E6%89%80.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911091316877.png'
+            },
+            {
+                name: 'I Really Want to Stay at Your House',
+                artist: 'Samuel Kim / Lorien',
+                url: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/audio/I%20Really%20Want%20to%20Stay%20at%20Your%20House.mp3',
+                cover: 'https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250911091823382.png'
+            }
+        ]
+    });
+</script>
+
+</body>
+</html>

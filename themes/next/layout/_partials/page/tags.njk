@@ -1,0 +1,104 @@
+<div class="tag-cloud">
+  <div class="tag-cloud-title">
+    {{ _p('counter.tag_cloud', site.tags.length) }}
+  </div>
+  
+  {# 普通标签云 - 移动端显示 #}
+  <div class="tag-cloud-tags mobile-tag-cloud">
+    {{ tagcloud({
+      min_font: theme.tagcloud.min,
+      max_font: theme.tagcloud.max,
+      amount  : theme.tagcloud.amount,
+      orderby : theme.tagcloud.orderby,
+      order   : theme.tagcloud.order,
+      class   : 'tag-cloud'
+      })
+    }}
+  </div>
+  
+  {# 球形标签云 - PC端显示 #}
+  <div class="pc-tag-cloud">
+    <div class="tags" id="myTags">
+      <canvas width="720" height="720" id="my3DTags" style="display: block;margin: 0 auto;">
+      </canvas>
+    </div>
+    <div class="tags" id="tags">
+      <ul style="display: none">
+        {{ tagcloud({
+          min_font   : 16,
+          max_font   : 35,
+          amount     : 999,
+          color      : true,
+          start_color: '#04f4f4',
+          end_color  : '#22bbff'
+          })
+        }}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{# 引入脚本 #}
+<script type="text/javascript" src="/js/tagcanvas.js"></script>
+<script type="text/javascript" src="/js/tagcloud.js"></script>
+
+{# 处理响应式显示和初始化 #}
+<style>
+  @media (max-width: 767px) {
+    .pc-tag-cloud {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .mobile-tag-cloud {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // 仅在PC端初始化3D标签云
+  function initTagCanvas() {
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      try {
+        TagCanvas.Start('my3DTags', 'tags', {
+          textFont: 'Georgia,Optima',
+          textColour: null,
+          outlineColour: '#cccccc',
+          weight: true,
+          reverse: true,
+          depth: 0.8,
+          maxSpeed: 0.05,
+          bgRadius: 1,
+          freezeDecel: true
+        });
+      } catch (e) {
+        const myTags = document.getElementById('myTags');
+        if (myTags) myTags.style.display = 'none';
+      }
+    }
+  }
+
+  // 页面加载和PJAX完成后初始化
+  document.addEventListener('DOMContentLoaded', initTagCanvas);
+  document.addEventListener('pjax:complete', initTagCanvas);
+  document.addEventListener('pjax:end', initTagCanvas);
+  
+  // 禁用标签链接的PJAX
+  /*
+  function disablePjaxForTagLinks() {
+    const tagLinks = document.querySelectorAll('a[href*="/tags/"], a[href*="/tag/"]');
+    tagLinks.forEach(link => {
+      link.setAttribute('data-no-pjax', 'true');
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        window.location.href = this.href;
+      });
+    });
+  }
+  */
+  
+  document.addEventListener('DOMContentLoaded', disablePjaxForTagLinks);
+  document.addEventListener('pjax:complete', disablePjaxForTagLinks);
+</script>

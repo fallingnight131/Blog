@@ -1,0 +1,613 @@
+#background-fixed
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  background: url("https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/background_202504181448.png") no-repeat center center
+  background-size: cover
+  z-index: -9999
+  pointer-events: none
+
+body
+  overflow-x: hidden
+
+.container
+  max-width: 1000px
+  margin: 0 auto
+
+img, table, pre, code, blockquote
+  max-width: 100%
+  overflow-x: auto
+
+//文章背板的颜色rgb
+.main-inner > .sub-menu, .main-inner > .post-block, .main-inner > .tabs-comment, .main-inner > .comments, .main-inner > .pagination{
+    background:rgba(255, 255, 255, 0);      //此处使用十六进制颜色代码，         也可以使用rgba进行调色，
+                                //实际效果为白色透明色底板              rgba的第四参数即为透明度
+                                
+}
+body{               //修改主体字体
+  color:#CCCCCC;     //颜色
+}
+body ::selection{               //修改主体字体选中后
+  color:#04f4f4;     //颜色
+  background: rgba(4, 244, 244, 0.3);
+}
+.posts-expand .post-title-link {    //标题颜色
+    color: #CCCCCC;                //首页文章标题颜色， （默认为灰辨识度不高）
+}
+.site-title {
+    color: #CCCCCC;  
+    font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-size: 1.375em;
+    font-weight: normal;
+    margin: 0;
+}
+.posts-expand .post-meta-container {    //标题下的日期颜色
+    color: #04f4f4;             //此处修改为红色，可自行调用rgb调色
+}
+.post-toc .nav .active-current > a {
+    border-bottom-color: #04f4f4; 
+    color: #04f4f4; 
+}
+.post-toc .nav .active > a {
+    border-bottom-color: #04f4f4;
+    color: #04f4f4;
+}
+.sidebar-toc-active .sidebar-nav-toc, .sidebar-overview-active .sidebar-nav-overview {
+    border-bottom-color: #04f4f4; 
+    color: #04f4f4; 
+    transition-delay: 0.2s; 
+}
+.sidebar-inner {
+    background: rgba(20, 21, 22, 0.7);
+    box-shadow: inset 0 0 6px #04f4f4;
+}
+//代码块
+pre[class*="language-"].line-numbers {
+    padding-left: 3.8em;
+    background: #2d2d2dad;
+    border-radius: 8px;
+    box-shadow: inset 0 0 6px #04f4f4;
+}
+pre[class*="language-"].line-numbers ::selection {
+  background: rgba(4, 244, 244, 0.3); /* 透明蓝绿色背景 */
+  color: #ffffff;                    /* 白字 */
+}
+code {
+    background:rgba(4, 244, 244, 0.12); /* 透明蓝绿色背景 */
+    color: #ffffff !important;
+}
+/* 隐藏行号背景 */
+.code-lang {
+    font-size: 40px;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 5px;
+}
+//菜单栏的调色
+.menu {
+    margin: 0;
+    padding: 1em 0;
+    text-align: center;
+    background: #02d2cf17;
+    border-radius: 0 0 10px 10px; /* 左上 右上 左下 右下 */
+    box-shadow: inset 0 0 6px #04f4f4;
+}
+header.header {
+    background: rgba(20, 21, 22, 0.7);
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: initial;
+}
+.main-inner {
+    background-color: rgba(20, 21, 22, 0.7);  //主体背景透明
+    padding: 0px 40px 40px 40px;  //调整组件位置
+    border-radius: 10px 10px 10px 10px;
+}
+.site-brand-container {
+    background: rgba(20, 21, 22, 0);
+    box-shadow: 0 0 16px rgb(2 210 243);
+    border-radius: 10px 10px 0 0; /* 左上 右上 左下 右下 */
+}
+.menu-item a:hover, .menu-item a.menu-item-active {
+    background: rgba(20, 21, 22, 0.7);
+}
+.main-menu .menu-item-active::after {
+    background: #04f4f4;
+    border-radius: 50%;
+    content: ' ';
+    height: 6px;
+    margin-top: -3px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 6px;
+}
+.menu-item .badge {
+    background: #2bf;
+    border-radius: 10px;
+    color: var(--content-bg-color);
+    font-weight: bold;
+    line-height: 1;
+    margin-left: 0.35em;
+    padding: 2px 5px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.menu-item .badge:hover {
+    background: #04f4f4; /* 悬停时的背景色，可以改为你喜欢的颜色 */
+    color: white; /* 悬停时的文字颜色 */
+    /* 其他悬停效果，比如阴影、边框等 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.search-popup {
+    background: rgba(20, 21, 22, 0.7);
+    box-shadow: 0 0 16px #04f4f4;
+}
+mark.search-keyword {
+  background: transparent;
+  border-bottom: 1px dashed #04f4f4;
+  color: #fc6423;
+  font-weight: bold;
+}
+.site-description {
+    color: #04f4f4;
+    font-size: 0.8125em;
+    margin-top: 0;
+}
+.sidebar-toggle:hover .toggle-line {
+    background: #04f4f4;
+}
+a {
+    border-bottom: 1px solid #999;
+    color: #2bf;
+    cursor: pointer;
+    outline: 0;
+    text-decoration: none;
+    overflow-wrap: break-word;
+}
+//归档字体
+.post-title a {
+    border-bottom: 0;
+    color: #2bf !important;
+    border-bottom-color: #999;
+}
+.post-title a:hover {
+    border-bottom: 0;
+    color: #cccccc !important;
+    border-bottom-color: #cccccc;
+}
+.main-inner {
+    margin-top: 0px;
+    margin-bottom: 60px;
+    padding: 25px;
+    box-shadow: inset 0 0 16px #04f4f4;
+    box-shadow:  0 0 16px #04f4f4;
+}
+//按钮颜色
+.btn {
+    background: #222222ad;
+    border: 2px solid var(--btn-default-border-color);
+    border-radius: 2px;
+    color: #cccccc !important;
+    display: inline-block;
+    font-size: 0.875em;
+    line-height: 2;
+    padding: 0 20px;
+    transition: background-color 0.2s ease-in-out;
+    box-shadow: inset 0 0 6px #04f4f4;
+    box-shadow:  0 0 6px #04f4f4;
+}
+.btn:hover {
+    background:rgba(102, 102, 102, 0.7);
+}
+.back-to-top.back-to-top-on {
+    cursor: pointer;
+    opacity: 0.6;
+    background:rgba(34, 34, 34, 0);
+}
+.back-to-top {
+    font-size: 12px;
+    margin: 8px -10px -20px;
+    opacity: 0.6;
+    background:rgba(34, 34, 34, 0);
+    transition: opacity 0.2s ease-in-out;
+}
+//表格
+th, td {
+    border: 1px solid rgba(4, 244, 244, 0.5);
+    border-bottom: 3px solid #04f4f4;
+    background:rgba(34, 34, 34, 0);
+}
+//gitalk
+.gt-container .gt-header-textarea {
+    padding: 0.75em;
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 5.125em;
+    max-height: 15em;
+    border-radius: 5px;
+    border: 1px solid #04f4f4 !important;
+    font-size: 0.875em;
+    word-wrap: break-word;
+    resize: vertical;
+    background-color:rgba(85, 85, 85, 0.7) !important;
+    outline: none;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.gt-container .gt-header-preview {
+    background-color: rgba(246, 249, 254, 0.7) !important;
+}
+.gt-container .gt-header-preview:hover {
+    background-color: rgba(246, 249, 254, 0.7) !important;
+    box-shadow: 0 0 16px #04f4f4;
+
+}
+//评论
+.gt-container .gt-comment-admin .gt-comment-content {
+    background-color:rgba(246, 249, 254, 0.7) !important;
+    border-radius: 5px !important;
+}
+.gt-container .gt-comment-admin .gt-comment-content:hover{
+    background-color:rgba(246, 249, 254, 0.7) !important;
+    border-radius: 5px !important;
+    box-shadow: 0 0 16px #04f4f4;
+}
+.gt-container .gt-comment-text {
+    color: #7e7e7e !important;
+}
+.gt-container .gt-comment-date {
+    color: #7e7e7e !important;
+}
+.gt-container .gt-btn {
+    background-color:rgba(97, 144, 232, 0.7) !important;
+}
+.gt-container .gt-btn-preview {
+    background-color:rgba(255, 255, 255, 0.7) !important;
+}
+//标签云
+.tag-cloud-0,
+.tag-cloud-1,
+.tag-cloud-2,
+.tag-cloud-3,
+.tag-cloud-4,
+.tag-cloud-5,
+.tag-cloud-6,
+.tag-cloud-7,
+.tag-cloud-8,
+.tag-cloud-9,
+.tag-cloud-10 {
+    border-bottom-color: #999;
+    color: #2bf;
+}
+.tag-cloud-0:hover,
+.tag-cloud-1:hover,
+.tag-cloud-2:hover,
+.tag-cloud-3:hover,
+.tag-cloud-4:hover,
+.tag-cloud-5:hover,
+.tag-cloud-6:hover,
+.tag-cloud-7:hover,
+.tag-cloud-8:hover,
+.tag-cloud-9:hover,
+.tag-cloud-10:hover {
+    border-bottom-color: #cccccc;
+    color: #cccccc;
+}
+//copyright
+.post-copyright ul {
+    list-style: none;
+    overflow: hidden;
+    padding: 0.5em 1em;
+    position: relative;
+    background:rgba(85, 85, 85, 0.7);
+    border-left: 3px solid #04f4f4;
+    margin: 1em 0 0;
+}
+//边侧栏收纳键
+.sidebar-toggle {
+    border-radius: 5px;
+    opacity: 0.7;
+}
+@media (max-width: 991px) {
+    .sidebar {
+        background: #222222ad;
+        bottom: 0;
+        box-shadow: inset 0 0 6px #04f4f4;
+        max-height: 100vh;
+        overflow-y: auto;
+        position: fixed;
+        top: 0;
+        transition: 0.2s ease-out;
+        transition-property: left, right;
+        width: 320px;
+        z-index: 20;
+        border-radius: 0 10px 10px 0;
+    }  
+}
+@media (max-width: 991px) {
+    .main-inner {
+        padding: 20px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 0 16px #04f4f4;
+    }
+}
+@media (max-width: 991px) {
+    .site-brand-container {
+        box-shadow: 0 0px 16px #04f4f4;
+        border-radius: 0px 0px 0 0; /* 左上 右上 左下 右下 */
+    }
+    .site-nav-on .site-brand-container {
+        box-shadow: 0 0 16px #04f4f4;
+    }
+    header.header {
+    background: rgba(20, 21, 22, 0.7);
+    border-radius: 10px 10px 0 0;
+    box-shadow: initial;
+  }
+  @media (max-width: 767px) {
+    body.site-nav-on .site-nav {
+        height: var(--scroll-height);
+        visibility: unset;
+        border-radius: 10px;
+        border-radius: 0 0 10px 10px;
+    }
+  }
+  
+}
+@media (max-width: 991px) {
+    .search-popup .search-header {
+        background: #666666ad;
+        box-shadow:  0 0 6px #04f4f4;
+    }
+    .search-popup {
+    background: rgba(20, 21, 22, 0.7);
+    box-shadow: inset 0 0 6px #04f4f4;
+    }
+}
+@media (max-width: 991px) {
+    .links-of-author a::before {
+        display: inline-block;
+        margin-right: 3px;
+        transform: translateY(-2px);
+        content: " ";
+        height: 4px;
+        width: 4px;
+        background: #04f4f4;
+        border-radius: 50%;
+    }
+}
+@media (max-width: 991px) {
+    .menu {
+        margin: 0;
+        padding: 1em 0;
+        text-align: center;
+        background: #02d2cf17;
+        border-radius: 10px 10px 10px 10px;
+    }
+    .sidebar-inner {
+    background: rgba(20, 21, 22, 0);
+    box-shadow: inset 0 0 0 #04f4f4;
+    }
+}
+//隐藏
+.hide
+  transition .1s
+  background #000
+  padding -1px
+  p
+    display inline
+  code
+    box-sizing border-box
+  &:hover
+    code
+      border 1px solid var(--theme-border-soft)
+  &:not(:hover)
+    color #000
+    code
+      border 1px solid transparent
+      background #000
+    strong, em, p, i, a
+      color #000
+    strong, em, p, i, a, span
+      transition .1s
+//引用
+.quot  
+  display: flex;  
+  align-items: center;  
+  justify-content: center;  
+  
+.quot p  
+  display: inline;  
+  margin: 0;  
+  font-size 1.3em;  
+  font-family 'REEJI-CloudDaBiaoSongGBT', 'Times New Roman'  
+  color var(--theme-border-light)  
+  
+.quot:before, .quot:after  
+  content: "";  
+  display: inline-block;  
+  height: 2em; /* 调整图标的高度 */  width: 2em; /* 调整图标的宽度 */  margin: 5px 5px;  
+  
+.quot.one:before  
+  background url('../img/left-1.png') no-repeat center/contain  
+  
+.quot.one:after  
+  background url('../img/right-1.png') no-repeat center/contain
+
+//github章鱼猫
+.github-corner svg {
+    color:rgba(4, 244, 244, 0.7);
+    fill: rgba(20, 21, 22, 0.7);
+}
+.book-mark-link {
+    display: none;
+}
+//友链小卡片
+@property --card-border
+  syntax '<color>'
+  inherits true
+  initial-value transparent
+
+.link-card
+  display inline-block
+  width 320px
+  padding unset
+  margin .5em 1em
+  position relative
+  z-index 1
+  &:hover
+    background-color var(--theme-bg-soft-hover)
+    &::before
+      --card-border var(--theme-highlight)
+    .link-main
+      border-left 2px solid var(--theme-highlight)
+  img
+    max-height 100%
+    max-width 100%
+    display block
+    border-bottom 1px solid var(--theme-border-soft)
+    margin-bottom -1px
+
+.link-card::before
+  content ''
+  position absolute
+  left 0
+  top 0
+  width 100%
+  height 100%
+  transition --card-border .3s
+  box-shadow 0 0 5px inset var(--card-border)
+
+.link-main
+  transition border-color .3s
+  background-color var(--theme-bg-soft)
+  border-left 2px solid var(--theme-text-light)
+  border-block inset 1px solid var(--theme-border-soft)
+  display flex
+  align-items center
+  height 4em
+  padding .5em
+  .link-ico
+    height 50px
+    width 50px
+    img
+      border-radius 50%
+    &.link-full
+      width 100%
+      display flex
+      justify-content center
+  .link-data
+    padding 0 .5em
+    width calc(100% - 50px)
+    box-sizing border-box
+    &.link-full
+      width 100%
+  .link-title
+    color var(--theme-text-light)
+    font-size 1.2em
+  .link-descr
+    color var(--theme-text)
+    font-family BenderLight, FangSong, sans-serif
+    height 36px
+    overflow hidden
+    text-overflow ellipsis
+    display: -webkit-box
+    -webkit-line-clamp 2
+    -webkit-box-orient vertical
+    &.link-full
+      height 54px
+      -webkit-line-clamp 3
+
+.link-main.link-simple
+  height 3em
+
+.link-background
+  position relative
+  z-index -1
+
+.link-container //自定义的一个类名，可以使link-card类元素的父div标签自动添加下边的样式
+  display: flex
+  justify-content: center
+  text-align: center
+  flex-wrap: wrap; //自动换行
+
+//提示
+.tip  
+  display flex  
+  align-items center  
+  padding: 10px;  
+  margin 5px 5px 0 0  
+  color #ffffff //普通的文本颜色会显得比较暗  
+  &.success  
+    background-color rgba(0,255,0,0.7)  
+    border-left 5px solid rgb(0,255,0)  
+  &.warning  
+    background-color rgba(255,255,0,0.7)  
+    border-left 5px solid rgb(255,255,0)  
+  &.failure  
+    background-color rgba(255,0,0,70%)  
+    border-left 5px solid rgb(255,0,0)  
+  .icon  
+    margin-right 0.8em  
+    transform scale(1.3)  
+  .p  
+    flex 1 /* 占据剩余空间 */
+
+//音乐信息
+.aplayer {
+    color: #777777 !important;
+    background:rgba(255, 255, 255, 0.7) !important;
+    box-shadow: 0 2px 2px 0 #04f4f4, 0 1px 5px 0 #04f4f4 !important;
+}
+
+/* 歌单整体字体和对齐 */
+.aplayer-list ol li {
+    display: flex;                  /* 使用 flex 布局 */
+    justify-content: space-between; /* 两边对齐 */
+    align-items: center;            /* 垂直居中 */
+    padding: 4px 8px;               /* 调整内边距 */
+    font-size: 14px;                /* 字体大小 */
+}
+
+/* 歌名（左侧） */
+.aplayer-list ol li .aplayer-list-title {
+    flex: 1;                /* 占据剩余空间 */
+    min-width: 0;           /* 允许收缩到0，配合省略号 */
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 歌手（右侧） */
+.aplayer-list ol li .aplayer-list-author {
+    flex: 0 0 70px;         /* 固定宽度80px，可根据实际调整 */
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+//折叠处高亮
+.fold-cover {
+    background-image: linear-gradient(to top, #1c1b1b 0, rgba(0, 0, 0, 0) 100%) !important;
+}
+.expand-btn {
+    color: #ffffff !important;
+}
+
+//表格颜色
+tbody tr {
+  &:nth-of-type(odd) {
+    background: #282824CC !important;
+  }
+
+  &:hover {
+    background: #363636CC !important;
+  }
+}
