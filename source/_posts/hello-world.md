@@ -15,9 +15,8 @@ post-info: true
 
 ## git
 Git 是一个开源的分布式版本控制系统，git自带的git bash可以让你在如windows这样的操作系统上也能执行Linux的命令。这在后续安装hexo时执行安装命令，以及部署hexo到github上时，会发挥其作用。
-git的下载网站如下：
-https://git-scm.com/
-下载完毕以后，记得打开 Path 变量，添加本地环境安装目录（确保文件位置到达 cmd ）。
+git的下载网站如下：[git官网](https://git-scm.com/)。
+下载完毕以后，记得打开 Path 变量，添加本地环境安装目录。
 
 ![](https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/2024-10-06%20200948.png)
 
@@ -27,9 +26,7 @@ https://git-scm.com/
 
 ## node.js
 运行 Hexo 需要 JavaScript 环境, Hexo 的命令行工具（如 hexo init、hexo generate、hexo deploy 等）都是 JavaScript 脚本，它们依赖于 node.js 来运行。因此，安装 Node.js 是为了提供执行 Hexo 的环境。
-node.js下载网站如下：
-https://nodejs.org/en/
-按照提示，d盘随便开个地方下载就行。记得直接下载那个LTS版本。
+node.js下载网站如下：[node官网](https://nodejs.org/en/)。记得直接下载那个LTS版本。
 
 ## hexo
 {% codeblock lang:bash %}
@@ -77,8 +74,7 @@ hexo s
 
 ## 主题
 刚刚生成的博客界面较为简陋，可以通过替换主题令其符合我们喜欢风格
-主题可以在官网提供的主题栏下载：
-https://hexo.io/themes/
+主题可以在[官网提供的主题栏](https://hexo.io/themes/)下载。
 点开想要下载的主题后一般会进入相应的github仓库，随后跟着相应的readme文件教程配置就行。
 
 # 部署
