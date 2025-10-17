@@ -27,7 +27,7 @@ Hadoop 主要包括四个核心模块：
 | -------- | -------- | -------- |
 | HDFS | Hadoop Distributed File System | 分布式文件存储系统 |
 | YARN | Yet Another Resource Negotiator | 负责任务调度与资源管理 |
-| MapReduce | ——    | 分布式数据计算框架 |
+| MapReduce | —— | 分布式数据计算框架 |
 | Common | —— | 公共工具、配置、依赖库 |
 
 
@@ -64,8 +64,8 @@ HDFS负责分布式文件存储，是Hadoop 的底层存储模块。
 ## Linux系统
 本文的所有命令是Ubuntu环境下运行的，可以买一个云服务器初始化的时候选择ubuntu系统，或者下载一个ubuntu镜像在虚拟机上跑。
 
-## 安装 JDK（至少 Java 8）
-本文使用Java对文件进行操作，所以需要安装JDK。
+## 安装 JDK（建议 Java 8）
+本文使用Java对文件进行操作，所以需要安装JDK。建议安装Java 8，用其他版本可能有起冲突的风险。
 {% codeblock lang:bash %}
 sudo apt update
 sudo apt install openjdk-8-jdk -y
@@ -80,6 +80,12 @@ tar -zxvf hadoop-3.3.6.tar.gz
 sudo mv hadoop-3.3.6 /usr/local/hadoop
 {% endcodeblock %}
 
+如果你没有安装 wget，可以先安装：
+{% codeblock lang:bash %}
+sudo apt update
+sudo apt install wget -y
+{% endcodeblock %}
+
 ### 配置环境变量
 打开配置文件：
 {% codeblock lang:bash %}
@@ -88,9 +94,9 @@ sudo nano ~/.bashrc
 
 在文件末尾加上：
 ```
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export HADOOP_HOME=/usr/local/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 加完以后保存并退出（Ctrl+O → 回车 → Ctrl+X）。
 
@@ -306,8 +312,8 @@ hdfs dfs -mkdir /test
 hdfs dfs -ls /
 {% endcodeblock %}
 
-## 编写 Java 实验程序
-在 /usr/local/hadoop 或你自己用户目录下创建一个实验目录：
+## 编写 Java 脚本
+在一个方便的目录下创建一个项目目录：
 {% codeblock lang:bash %}
 mkdir -p ~/hdfs-java-api
 cd ~/hdfs-java-api
@@ -385,7 +391,7 @@ echo "Hello HDFS from Java API!" > /home/username/test.txt
 同样将其中的`username`改成自己的用户名。
 
 ## 编译并运行
-设置 Hadoop 的 classpath：
+设置 Hadoop 的依赖路径：
 ```
 export HADOOP_CLASSPATH=$(hadoop classpath)
 ```
@@ -412,9 +418,9 @@ java -cp $HADOOP_CLASSPATH:. HdfsClient
 ✅ 目录 /experiment 创建成功！
 ✅ 文件上传成功！
 ✅ 文件内容：
-Hello Hadoop!
+Hello HDFS from Java API!
 ✅ 文件路径：hdfs://localhost:9000/experiment/test.txt
-✅ 文件大小：14 bytes
+✅ 文件大小：26 bytes
 ✅ 文件已删除。
 {% endcodeblock %}
 
