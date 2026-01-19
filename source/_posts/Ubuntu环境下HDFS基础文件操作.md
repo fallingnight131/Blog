@@ -118,6 +118,7 @@ hadoop version
 # 启动 Hadoop 单机模式（或伪分布式）
 ## 建立ssh连接
 本文是单机模式，所以只需要和自己（localhost）建立ssh免密登录就行。如果是正常情况下多台机器实现分布式，则需要和本机以及每台机器都配置免密登录。
+
 ### 安装并启动 SSH 服务
 执行：
 {% codeblock lang:bash %}
