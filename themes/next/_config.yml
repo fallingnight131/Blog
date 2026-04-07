@@ -102,6 +102,7 @@ menu:
   categories: /categories/ || fa fa-th
   about: /about/ || fa fa-user
   友链: /links/ || fa fa-link
+  导航: https://fallingnight.com || fa fa-compass
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
