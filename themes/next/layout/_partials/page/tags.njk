@@ -38,10 +38,6 @@
   </div>
 </div>
 
-{# 引入脚本 #}
-<script type="text/javascript" src="/js/tagcanvas.js"></script>
-<script type="text/javascript" src="/js/tagcloud.js"></script>
-
 {# 处理响应式显示和初始化 #}
 <style>
   @media (max-width: 767px) {
@@ -57,10 +53,12 @@
   }
 </style>
 
-<script>
-  // 仅在PC端初始化3D标签云
-  function initTagCanvas() {
-    if (window.matchMedia('(min-width: 768px)').matches) {
+<script data-pjax>
+  (function() {
+    var ROOT = '{{ theme.root | default(config.root) }}';
+
+    function startTagCanvas() {
+      if (!window.matchMedia('(min-width: 768px)').matches) return;
       try {
         TagCanvas.Start('my3DTags', 'tags', {
           textFont: 'Georgia,Optima',
@@ -74,30 +72,33 @@
           freezeDecel: true
         });
       } catch (e) {
-        const myTags = document.getElementById('myTags');
+        var myTags = document.getElementById('myTags');
         if (myTags) myTags.style.display = 'none';
       }
     }
-  }
 
-  // 页面加载和PJAX完成后初始化
-  document.addEventListener('DOMContentLoaded', initTagCanvas);
-  document.addEventListener('pjax:complete', initTagCanvas);
-  document.addEventListener('pjax:end', initTagCanvas);
-  
-  // 禁用标签链接的PJAX
-  /*
-  function disablePjaxForTagLinks() {
-    const tagLinks = document.querySelectorAll('a[href*="/tags/"], a[href*="/tag/"]');
-    tagLinks.forEach(link => {
-      link.setAttribute('data-no-pjax', 'true');
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-        window.location.href = this.href;
-      });
-    });
-  }
-  */
+    function loadScript(src, cb) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.onload = cb;
+      document.body.appendChild(s);
+    }
+
+    function initTagCanvas() {
+      if (typeof TagCanvas !== 'undefined') {
+        startTagCanvas();
+      } else {
+        loadScript(ROOT + 'js/tagcanvas.js', function() {
+          startTagCanvas();
+        });
+      }
+    }
+
+    // 首次加载 & PJAX 导航均触发
+    initTagCanvas();
+    document.addEventListener('pjax:complete', initTagCanvas);
+    document.addEventListener('pjax:end', initTagCanvas);
+  })();
   
   document.addEventListener('DOMContentLoaded', disablePjaxForTagLinks);
   document.addEventListener('pjax:complete', disablePjaxForTagLinks);
