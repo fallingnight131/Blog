@@ -2,25 +2,11 @@
   <div class="tag-cloud-title">
     {{ _p('counter.tag_cloud', site.tags.length) }}
   </div>
-  
-  {# 普通标签云 - 移动端显示 #}
-  <div class="tag-cloud-tags mobile-tag-cloud">
-    {{ tagcloud({
-      min_font: theme.tagcloud.min,
-      max_font: theme.tagcloud.max,
-      amount  : theme.tagcloud.amount,
-      orderby : theme.tagcloud.orderby,
-      order   : theme.tagcloud.order,
-      class   : 'tag-cloud'
-      })
-    }}
-  </div>
-  
-  {# 球形标签云 - PC端显示 #}
-  <div class="pc-tag-cloud">
+
+  {# 球形标签云 - 全端显示 #}
+  <div class="tag-cloud-3d" style="width:100%;max-width:720px;margin:0 auto;">
     <div class="tags" id="myTags">
-      <canvas width="720" height="720" id="my3DTags" style="display: block;margin: 0 auto;">
-      </canvas>
+      <canvas id="my3DTags" style="display:block;width:100%;height:auto;margin:0 auto;"></canvas>
     </div>
     <div class="tags" id="tags">
       <ul style="display: none">
@@ -28,9 +14,7 @@
           min_font   : 16,
           max_font   : 35,
           amount     : 999,
-          color      : true,
-          start_color: '#04f4f4',
-          end_color  : '#22bbff'
+          color      : false
           })
         }}
       </ul>
@@ -38,27 +22,31 @@
   </div>
 </div>
 
-{# 处理响应式显示和初始化 #}
-<style>
-  @media (max-width: 767px) {
-    .pc-tag-cloud {
-      display: none;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .mobile-tag-cloud {
-      display: none;
-    }
-  }
-</style>
-
 <script data-pjax>
   (function() {
     var ROOT = '{{ theme.root | default(config.root) }}';
 
+    function applyGradientColors() {
+      var links = document.querySelectorAll('#tags ul a');
+      if (!links.length) return;
+      for (var i = 0; i < links.length; i++) {
+        var hue = 180 + Math.round((i / links.length) * 30);
+        links[i].style.color = 'hsl(' + hue + ', 80%, 55%)';
+      }
+    }
+
+    function resizeCanvas() {
+      var canvas = document.getElementById('my3DTags');
+      if (!canvas) return;
+      var container = canvas.parentElement.parentElement;
+      var size = Math.min(container.clientWidth, 720);
+      canvas.width = size;
+      canvas.height = size;
+    }
+
     function startTagCanvas() {
-      if (!window.matchMedia('(min-width: 768px)').matches) return;
+      applyGradientColors();
+      resizeCanvas();
       try {
         TagCanvas.Start('my3DTags', 'tags', {
           textFont: 'Georgia,Optima',
