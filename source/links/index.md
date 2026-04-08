@@ -1,10 +1,12 @@
 ---
-title: Portal|传送门
+title: 传送门
 date: 2024-10-08 10:24:15
+comments: false
 ---
 ![](https://fallingnight131.oss-cn-shanghai.aliyuncs.com/blog/image/20250308024538667.png)
 
 # 欢迎来到我的友链
+
 ---
 
 ## 朋友们
@@ -26,25 +28,6 @@ Alex:
     example: example
 {% endlinkcard %}
 
-## 网上的大佬
-{% linkcard %}
-瑪利歐的部落格: 
-  title: "瑪利歐的部落格的博客"  # 标题
-  src: 'https://ed521.github.io/'  # 链接地址
-  avatar: 'https://ed521.github.io/images/avatar.png'  # 图标
-  descr: "学习了他关于markdown语法的博客，非常详细"  # 描述
-  style:  # 自定义样式
-    example: example
-
-Molier: 
-  title: "Molier的博客"  # 标题
-  src: 'https://oliverqueen.cn'  # 链接地址
-  avatar: 'https://oliverqueen.cn/images/avatar.jpeg'  # 图标
-  descr: "在为博客配置背景音乐时学习了他的文章，很有帮助"  # 描述
-  style:  # 自定义样式
-    example: example
-{% endlinkcard %}
- 
 ---
 # 一些好用的平台/工具
 ---
@@ -118,7 +101,7 @@ HuggingFace:
 
 
     
-## 小工具
+## 便捷工具
 {% linkcard %}
 pixelcut: 
   title: "pixelcut"  # 标题
