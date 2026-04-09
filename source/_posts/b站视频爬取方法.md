@@ -1,12 +1,13 @@
 ---
-title: b站视频爬取方法
+title: B站视频爬取方法
 date: 2025-04-01 09:00:03
-category: 心得分享
+category: 项目文档
 tags:
 - html
 - json
 - 爬虫
 - Python
+- bilibili
 post-info: true
 ---
 {% tip warning 叠甲——本文内容仅供学习使用。%} 
