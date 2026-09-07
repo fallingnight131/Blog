@@ -1,20 +1,21 @@
 /* global NexT, CONFIG, mermaid */
 
 document.addEventListener('page:loaded', () => {
-  const mermaidElements = document.querySelectorAll('pre > .mermaid');
+  const mermaidElements = document.querySelectorAll('pre > .mermaid, pre > code.language-mermaid');
   if (mermaidElements.length) {
     NexT.utils.getScript(CONFIG.mermaid.js, {
       condition: window.mermaid
     }).then(() => {
       mermaidElements.forEach(element => {
+        const source = element.textContent.trim();
         const box = document.createElement('div');
         box.className = 'code-container';
         const newElement = document.createElement('div');
-        newElement.innerHTML = element.innerHTML;
+        newElement.textContent = source;
         newElement.className = 'mermaid';
         box.appendChild(newElement);
         if (CONFIG.codeblock.copy_button.enable) {
-          NexT.utils.registerCopyButton(box, box, element.textContent);
+          NexT.utils.registerCopyButton(box, box, source);
         }
         const parent = element.parentNode;
         parent.parentNode.replaceChild(box, parent);

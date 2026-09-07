@@ -87,8 +87,8 @@ NexT.utils = {
       figure = document.querySelectorAll('pre');
     }
     figure.forEach(element => {
-      // Skip pre > .mermaid for folding and copy button
-      if (element.querySelector('.mermaid')) return;
+      // Skip Mermaid blocks for folding and copy button.
+      if (element.querySelector('.mermaid, code.language-mermaid')) return;
       const languageName = [...element.classList].find(cls => cls !== 'highlight');
       if (!inited) {
         let span = element.querySelectorAll('.code .line span');
